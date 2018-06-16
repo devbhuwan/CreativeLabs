@@ -1,0 +1,2 @@
+- https://keyholesoftware.com/2017/08/07/event-storming-for-rapid-domain-learning/
+- https://github.com/pivotal-chicago/spring-boot-rest-api-tdd
