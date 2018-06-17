@@ -11,6 +11,8 @@ repositories {
 dependencies {
     compile(kotlin("stdlib-jdk8"))
     testCompile("junit", "junit", "4.12")
+    compile("org.springframework.data:spring-data-commons:2.0.8.RELEASE")
+
 }
 
 tasks.withType<KotlinCompile> {
