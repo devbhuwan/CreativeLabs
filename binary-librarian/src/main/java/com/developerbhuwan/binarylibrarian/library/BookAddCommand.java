@@ -17,9 +17,9 @@ import java.util.Map;
 class BookAddCommand extends Command {
 
     private final BookId bookId;
-    private final Long noOfPiece;
+    private final Integer noOfPiece;
 
-    public BookAddCommand(Map.Entry<BookId, Long> detail) {
+    public BookAddCommand(Map.Entry<BookId, Integer> detail) {
         this.bookId = detail.getKey();
         this.noOfPiece = detail.getValue();
     }

@@ -16,7 +16,11 @@ public class LibraryService {
 
     private final LibraryRepository repository;
 
-    public void addBook(LibraryId libraryId, Map<BookId, Long> books) {
+    public Library createNewLibrary(String name) {
+        return repository.save(new Library(LibraryId.newId(), name));
+    }
+
+    public void addBook(LibraryId libraryId, Map<BookId, Integer> books) {
         Optional<Library> libraryById = repository.findById(libraryId);
         if (libraryById.isPresent()) {
             Library library = libraryById.get();

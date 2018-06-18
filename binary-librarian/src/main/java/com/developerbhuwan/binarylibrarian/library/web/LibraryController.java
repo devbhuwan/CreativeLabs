@@ -29,11 +29,11 @@ public class LibraryController {
     @Value
     static class AddBookRequest {
         String libraryId;
-        Map<String, Long> books;
+        Map<String, Integer> books;
 
-        static Map<BookId, Long> transform(Map<String, Long> books) {
-            Map<BookId, Long> booksMap = new HashMap<>();
-            for (Map.Entry<String, Long> e : books.entrySet())
+        static Map<BookId, Integer> transform(Map<String, Integer> books) {
+            Map<BookId, Integer> booksMap = new HashMap<>();
+            for (Map.Entry<String, Integer> e : books.entrySet())
                 booksMap.put(new BookId(e.getKey()), e.getValue());
             return booksMap;
         }

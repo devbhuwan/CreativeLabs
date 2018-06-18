@@ -13,7 +13,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "BLLibraryBook")
 class LibraryBook {
+
     @Id
+    private final LibraryBookId libraryBookId;
     private final BookId bookId;
+
 
 }
