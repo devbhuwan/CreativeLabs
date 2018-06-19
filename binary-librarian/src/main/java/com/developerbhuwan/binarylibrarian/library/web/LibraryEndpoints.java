@@ -6,7 +6,9 @@ import com.developerbhuwan.binarylibrarian.shared.BookId;
 import com.developerbhuwan.binarylibrarian.shared.LibraryId;
 import lombok.RequiredArgsConstructor;
 import lombok.Value;
+import org.springframework.hateoas.MediaTypes;
 import org.springframework.hateoas.ResourceSupport;
+import org.springframework.hateoas.Resources;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,7 +29,7 @@ public class LibraryEndpoints {
         this.libraryService = libraryService;
     }
 
-    @GetMapping
+    @GetMapping(produces = MediaTypes.HAL_JSON_VALUE)
     public ResourceSupport root() {
         ResourceSupport rootResource = new ResourceSupport();
         rootResource.add(
@@ -36,9 +38,15 @@ public class LibraryEndpoints {
         return rootResource;
     }
 
+
     @PostMapping
     public ResponseEntity<Library> addBook(@RequestBody AddLibraryRequest request) {
         return new ResponseEntity<>(libraryService.addLibrary(request.name), HttpStatus.CREATED);
+    }
+
+    @GetMapping
+    public ResponseEntity<Resources<Library>> findAll() {
+        return null;
     }
 
     @PostMapping("/{library-id}/add-books")
