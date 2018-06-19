@@ -6,6 +6,8 @@ import com.developerbhuwan.binarylibrarian.shared.LibraryId;
 import lombok.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -20,7 +22,8 @@ public class LibraryEndpoints {
         this.libraryService = libraryService;
     }
 
-    public ResponseEntity<AddBookResponse> addBook(AddBookRequest request) {
+    @PostMapping("/add-books")
+    public ResponseEntity<AddBookResponse> addBook(@RequestBody AddBookRequest request) {
         libraryService.addBook(new LibraryId(request.libraryId), AddBookRequest.transform(request.books));
         return new ResponseEntity<>(new AddBookResponse(), HttpStatus.OK);
     }

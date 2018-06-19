@@ -17,10 +17,10 @@ import java.util.Map;
 class BookAddCommand extends Command {
 
     private final BookId bookId;
-    private final Integer noOfPiece;
+    private final Integer noOfPieces;
 
-    public BookAddCommand(Map.Entry<BookId, Integer> detail) {
+    BookAddCommand(Map.Entry<BookId, Integer> detail) {
         this.bookId = detail.getKey();
-        this.noOfPiece = detail.getValue();
+        this.noOfPieces = detail.getValue();
     }
 }

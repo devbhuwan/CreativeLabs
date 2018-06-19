@@ -12,6 +12,7 @@ import lombok.Value;
 @Value
 public class BookAddedEvent extends DomainEvent {
     private final BookId bookId;
+    private final int noOfPieces;
 }
 
 

@@ -28,11 +28,11 @@ public class Library extends AbstractAggregateRoot implements Serializable {
     private final List<LibraryBook> libraryBooks = new LinkedList<>();
 
     void addBook(BookAddCommand command) {
-        List<LibraryBook> newBooks = IntStream.range(0, command.getNoOfPiece())
+        List<LibraryBook> newBooks = IntStream.range(0, command.getNoOfPieces())
                 .mapToObj(c -> new LibraryBook(LibraryBookId.newId(), command.getBookId()))
                 .collect(Collectors.toList());
         libraryBooks.addAll(newBooks);
-        registerEvent(new BookAddedEvent(command.getBookId()));
+        registerEvent(new BookAddedEvent(command.getBookId(), newBooks.size()));
     }
 
     public long getTotalNoOfBooks(BookId bookId) {
