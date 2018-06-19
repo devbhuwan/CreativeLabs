@@ -9,4 +9,6 @@ This project developed using Domain Driven Development [DDD] architecture.
 | https://spring.io/projects/spring-boot[Spring Boot]
 
 | http://projects.spring.io/spring-data/[Spring Data]
+
+| https://spring.io/projects/spring-hateoas[Spring Hateoas]
 |===
