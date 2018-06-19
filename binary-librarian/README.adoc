@@ -2,4 +2,11 @@
 
 This project developed using Domain Driven Development [DDD] architecture.
 
-NOTE: This example uses https://projectlombok.org[Project Lombok] to reduce writing Java code.
+
+|===
+| USED TOOLS
+
+| https://spring.io/projects/spring-boot[Spring Boot]
+
+| http://projects.spring.io/spring-data/[Spring Data]
+|===
