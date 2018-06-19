@@ -1,0 +1,5 @@
+= Binary Librarian - The library management system.
+
+The library management system.
+
+NOTE: This example uses https://projectlombok.org[Project Lombok] to reduce writing Java code.
