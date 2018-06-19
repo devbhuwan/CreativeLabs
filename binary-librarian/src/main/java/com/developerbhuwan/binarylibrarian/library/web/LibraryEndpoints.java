@@ -27,14 +27,14 @@ public class LibraryEndpoints {
     }
 
     @PostMapping
-    public ResponseEntity<AddBookResponse> addBook(@RequestBody AddBookRequest request) {
-        libraryService.addBook(new LibraryId(request.libraryId), AddBookRequest.transform(request.books));
-        return new ResponseEntity<>(new AddBookResponse(), HttpStatus.OK);
+    public ResponseEntity<Library> addBook(@RequestBody AddLibraryRequest request) {
+        return new ResponseEntity<>(libraryService.addLibrary(request.name), HttpStatus.CREATED);
     }
 
     @PostMapping("/add-books")
-    public ResponseEntity<Library> addBook(@RequestBody AddLibraryRequest request) {
-        return new ResponseEntity<>(libraryService.addLibrary(request.name), HttpStatus.CREATED);
+    public ResponseEntity<AddBookResponse> addBook(@RequestBody AddBookRequest request) {
+        libraryService.addBook(new LibraryId(request.libraryId), AddBookRequest.transform(request.books));
+        return new ResponseEntity<>(new AddBookResponse(), HttpStatus.OK);
     }
 
     @Value
