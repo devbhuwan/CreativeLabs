@@ -1,5 +1,8 @@
 package com.developerbhuwan.binarylibrarian.library;
 
+import com.developerbhuwan.binarylibrarian.AbstractIntegrationTest;
+import com.developerbhuwan.binarylibrarian.library.Library;
+import com.developerbhuwan.binarylibrarian.library.LibraryService;
 import com.developerbhuwan.binarylibrarian.shared.BookId;
 import org.assertj.core.util.Maps;
 import org.junit.jupiter.api.Test;

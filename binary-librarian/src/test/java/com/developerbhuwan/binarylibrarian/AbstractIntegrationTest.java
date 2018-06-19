@@ -1,4 +1,4 @@
-package com.developerbhuwan.binarylibrarian.library;
+package com.developerbhuwan.binarylibrarian;
 
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;

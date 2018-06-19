@@ -1,4 +1,4 @@
-package com.developerbhuwan.binarylibrarian.library;
+package com.developerbhuwan.binarylibrarian;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

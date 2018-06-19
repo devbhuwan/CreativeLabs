@@ -1,8 +1,6 @@
 package com.developerbhuwan.binarylibrarian.library.web;
 
-import com.developerbhuwan.binarylibrarian.library.AbstractWebIntegrationTest;
-
-import static org.junit.jupiter.api.Assertions.*;
+import com.developerbhuwan.binarylibrarian.AbstractWebIntegrationTest;
 
 class LibraryEndpointsIntegrationTest extends AbstractWebIntegrationTest {
 

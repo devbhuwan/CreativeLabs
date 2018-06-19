@@ -20,6 +20,10 @@ public class LibraryService {
         return repository.save(new Library(LibraryId.newId(), name));
     }
 
+    public Library addLibrary(String name) {
+        return repository.save(new Library(LibraryId.newId(), name));
+    }
+
     public void addBook(LibraryId libraryId, Map<BookId, Integer> books) {
         Optional<Library> libraryById = repository.findById(libraryId);
         if (libraryById.isPresent()) {
