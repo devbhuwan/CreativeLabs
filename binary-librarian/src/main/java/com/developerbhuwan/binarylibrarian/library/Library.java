@@ -3,24 +3,24 @@ package com.developerbhuwan.binarylibrarian.library;
 import com.developerbhuwan.binarylibrarian.shared.BookId;
 import com.developerbhuwan.binarylibrarian.shared.LibraryId;
 import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.AbstractAggregateRoot;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-
 @Entity
 @Table(name = "BLLibrary")
-@AllArgsConstructor()
 @Getter
 @NoArgsConstructor(force = true, access = AccessLevel.PRIVATE)
-public class Library extends AbstractAggregateRoot {
+@RequiredArgsConstructor
+public class Library extends AbstractAggregateRoot implements Serializable {
     @Id
     private final LibraryId libraryId;
     private final String name;

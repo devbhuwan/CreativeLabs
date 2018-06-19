@@ -2,6 +2,6 @@ package com.developerbhuwan.binarylibrarian.core;
 
 import java.io.Serializable;
 
-public interface AbstractIdentifiable<T> extends Serializable {
+public interface AbstractIdentifier<T> extends Serializable {
 
 }

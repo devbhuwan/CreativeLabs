@@ -2,7 +2,7 @@ package com.developerbhuwan.binarylibrarian.library;
 
 import com.developerbhuwan.binarylibrarian.shared.BookId;
 import com.developerbhuwan.binarylibrarian.shared.LibraryId;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
@@ -11,7 +11,7 @@ import java.util.Optional;
 import static java.lang.String.format;
 
 @Component
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class LibraryService {
 
     private final LibraryRepository repository;
