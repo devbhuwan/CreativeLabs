@@ -12,11 +12,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-public class LibraryController {
+public class LibraryEndpoints {
 
     private final LibraryService libraryService;
 
-    public LibraryController(LibraryService libraryService) {
+    public LibraryEndpoints(LibraryService libraryService) {
         this.libraryService = libraryService;
     }
 
