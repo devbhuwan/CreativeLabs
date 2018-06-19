@@ -6,15 +6,16 @@ import com.developerbhuwan.binarylibrarian.shared.BookId;
 import com.developerbhuwan.binarylibrarian.shared.LibraryId;
 import lombok.RequiredArgsConstructor;
 import lombok.Value;
+import org.springframework.hateoas.ResourceSupport;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 @RestController
 @RequestMapping("/libraries")
@@ -26,20 +27,28 @@ public class LibraryEndpoints {
         this.libraryService = libraryService;
     }
 
+    @GetMapping
+    public ResourceSupport root() {
+        ResourceSupport rootResource = new ResourceSupport();
+        rootResource.add(
+                linkTo(methodOn(LibraryEndpoints.class)).withSelfRel()
+        );
+        return rootResource;
+    }
+
     @PostMapping
     public ResponseEntity<Library> addBook(@RequestBody AddLibraryRequest request) {
         return new ResponseEntity<>(libraryService.addLibrary(request.name), HttpStatus.CREATED);
     }
 
-    @PostMapping("/add-books")
-    public ResponseEntity<AddBookResponse> addBook(@RequestBody AddBookRequest request) {
-        libraryService.addBook(new LibraryId(request.libraryId), AddBookRequest.transform(request.books));
+    @PostMapping("/{library-id}/add-books")
+    public ResponseEntity<AddBookResponse> addBook(@PathVariable("library-id") String libraryId, @RequestBody AddBookRequest request) {
+        libraryService.addBook(new LibraryId(libraryId), AddBookRequest.transform(request.books));
         return new ResponseEntity<>(new AddBookResponse(), HttpStatus.OK);
     }
 
     @Value
     static class AddBookRequest {
-        String libraryId;
         Map<String, Integer> books;
 
         static Map<BookId, Integer> transform(Map<String, Integer> books) {
