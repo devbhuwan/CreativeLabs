@@ -27,6 +27,7 @@ public class LibraryService {
             books.entrySet().stream()
                     .map(BookAddCommand::new)
                     .forEach(library::addBook);
+            repository.save(library);
         } else
             throw new IllegalArgumentException(format("library not found for id [%s]", libraryId));
     }

@@ -8,10 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.domain.AbstractAggregateRoot;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,7 +24,7 @@ public class Library extends AbstractAggregateRoot {
     @Id
     private final LibraryId libraryId;
     private final String name;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private final List<LibraryBook> libraryBooks = new LinkedList<>();
 
     void addBook(BookAddCommand command) {
