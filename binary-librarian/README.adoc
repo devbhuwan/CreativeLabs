@@ -1,5 +1,5 @@
 = Binary Librarian - The library management system.
 
-The library management system.
+This project developed using Domain Driven Development [DDD].
 
 NOTE: This example uses https://projectlombok.org[Project Lombok] to reduce writing Java code.
