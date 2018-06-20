@@ -5,6 +5,7 @@ import com.developerbhuwan.binarylibrarian.shared.LibraryId;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -34,6 +35,10 @@ public class LibraryService {
             repository.save(library);
         } else
             throw new IllegalArgumentException(format("library not found for id [%s]", libraryId));
+    }
+
+    public List<Library> getLibraries() {
+        return (List<Library>) repository.findAll();
     }
 
 }
