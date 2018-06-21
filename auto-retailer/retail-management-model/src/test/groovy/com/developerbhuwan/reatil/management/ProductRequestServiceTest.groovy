@@ -25,7 +25,7 @@ class ProductRequestServiceTest extends Specification implements ProductRequestT
         1 * repo.initNewRequest(refNo)
     }
 
-    def "Repository interactions while process request"() {
+    def "Repository interactions and ProductRequested event also emit while process request"() {
         given:
         def refNo = "300232" as String
         def requestList = new RequestCheckListBuilder(refNo)
