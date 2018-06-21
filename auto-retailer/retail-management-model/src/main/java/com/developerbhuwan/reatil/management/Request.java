@@ -1,19 +1,41 @@
 package com.developerbhuwan.reatil.management;
 
+import lombok.EqualsAndHashCode;
 import lombok.Value;
 
 import java.time.LocalDateTime;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
+
+import static java.util.stream.Collectors.toSet;
 
 @Value
-class Request {
+public class Request {
 
-    private String refNo;
-    private Set<ProductRequest> productRequests;
-    private LocalDateTime deliveryDate;
+    private final String refNo;
+    private final Set<ProductRequest> productRequests = new LinkedHashSet<>();
+    private final LocalDateTime deliveryDate;
+    private final RequestEvents events;
+
+    void process(RequestCheckList checkList) {
+        productRequests.addAll(checkList.validRequests());
+        if (!productRequests.isEmpty())
+            events.emit(new ProductsRequested(refNo, productRequests));
+    }
 
     @Value
+    public static class RequestCheckList {
+        private final String refNo;
+        private final Map<String, Integer> quotaList;
+
+        Set<ProductRequest> validRequests() {
+            return Collections.unmodifiableSet(quotaList.entrySet().stream()
+                    .filter(e -> e.getValue() > 0)
+                    .map(ProductRequest::new).collect(toSet()));
+        }
+    }
+
+    @Value
+    @EqualsAndHashCode(exclude = "quantity")
     static class ProductRequest {
 
         private final String productRefNo;
