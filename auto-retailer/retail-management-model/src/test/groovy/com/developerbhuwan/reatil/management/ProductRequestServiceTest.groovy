@@ -7,7 +7,7 @@ import java.time.LocalDateTime
 class ProductRequestServiceTest extends Specification implements ProductRequestTrait {
 
     def repo = null as ProductRequestService
-    def service
+    def service = null as ProductRequestService
 
     def setup() {
         repo = Mock(ProductRequestRepository)
