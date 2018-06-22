@@ -1,6 +1,8 @@
 rootProject.name = "auto-retailer"
 
 include(
+        "shared-kernel",
+        "adapters-common",
         "retail-management-model",
         "retail-management-adapters",
         "wholesale-management-model",

@@ -1,6 +1,10 @@
 apply plugin: 'groovy'
 
 dependencies {
+    compile(project(":retail-management-model"))
+    compile(project(":adapters-common"))
+    compile(project(":shared-kernel"))
+
     compile("org.projectlombok:lombok:1.18.0")
     testCompile("org.spockframework:spock-core:1.1-groovy-2.4")
 }

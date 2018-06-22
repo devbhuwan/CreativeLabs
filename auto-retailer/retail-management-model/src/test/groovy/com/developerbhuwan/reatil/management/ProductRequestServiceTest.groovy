@@ -33,7 +33,7 @@ class ProductRequestServiceTest extends Specification implements ProductRequestT
                 .addRequest("10002", 5)
                 .build()
         def events = Mock(RequestEvents)
-        repo.get(_ as String) >> new Request(refNo, LocalDateTime.now(), events)
+        repo.get(_ as String) >> new Request(refNo, new Request.ProductRequest(LocalDateTime.now()), events)
         when:
         service.process(requestList)
 
