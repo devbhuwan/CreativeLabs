@@ -35,7 +35,7 @@ public class Library extends AbstractAggregateRoot implements Serializable {
         registerEvent(new BookAddedEvent(command.getBookId(), newBooks.size()));
     }
 
-    public long getTotalNoOfBooks(BookId bookId) {
+    long getTotalNoOfBooks(BookId bookId) {
         return libraryBooks.stream()
                 .filter(b -> isEquals(bookId, b)).count();
     }
